@@ -1,0 +1,22 @@
+<div >
+    Aadhar Number:{{aadharNumber}}<br/>
+    Name:{{myAadhar.name}}<br/>
+    Address:{{myAadhar.address}}
+  
+<input type="text" name="aadharNumber" >
+   
+
+
+   <!-- Update Aadhar form -->
+   
+     <form [formGroup]="updatePhoneNumberForm" (ngSubmit)="updatePhoneNumber()">
+       <div class="form-group">
+         <label>Phone Number</label>
+         <input type="text" class="form-control" id="aadharNumber" formControlName="aadharNumber"  [(ngModel)]="aadharNumber" />
+         <div class="alert alert-danger" *ngIf="updatePhoneNumberForm.get('phoneNumber').errors">
+             Phone number is invalid
+         </div>
+       </div>
+       <button class="btn btn-primary" [disabled]="updatePhoneNumberForm.invalid">Update Phone</button>
+     </form>
+   </div>

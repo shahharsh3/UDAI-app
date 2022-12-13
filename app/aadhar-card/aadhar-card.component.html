@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-md-5 offset-md-4">
+    <div class="card">
+      <div class="card-header bg-primary">Change aadhar details</div>
+      <div class="card-body" >
+        <!-- get aadhar form -->
+        <form [formGroup]="getAadharForm" (ngSubmit)="getAadhar()">
+          <div class="form-group">
+            <label for="aadharNumber">Aadhar number</label>
+            <input type="text" class="form-control" id="aadharNumber" formControlName="aadharNumber" />
+            <div class="alert alert-danger" *ngIf="getAadharForm.get('aadharNumber').errors && getAadharForm.get('aadharNumber').touched">
+              Should be 12 digit number
+            </div>
+          </div>
+          <button class="btn btn-primary" [disabled]="getAadharForm.invalid" >Get Details</button>
+        </form>
+        
+         <div *ngIf="myAadhar">
+          Aadhar Number:{{myAadhar.aadharNumber|aadharNumber}}<br/>
+          Name:{{myAadhar.name}}<br/>
+          Address:{{myAadhar.address}}
+        
+      
+         
+      
+      
+        
+         
+           <form [formGroup]="updatePhoneNumberForm" (ngSubmit)="updatePhoneNumber()">
+             <div class="form-group">
+               <label>Phone Number</label>
+               <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber"/>
+               <div class="alert alert-danger" *ngIf="updatePhoneNumberForm.get('phoneNumber').errors">
+                   Phone number is invalid
+               </div>
+             </div>
+             <button class="btn btn-primary" [disabled]="updatePhoneNumberForm.invalid">Update Phone</button>
+           </form>
+         </div>   
+      
+
+<span class="text-success">{{successMessage}}</span>
+<span class="text-danger">{{errorMessage}}</span>
+      </div>
+    </div>
+  </div>
+</div>
